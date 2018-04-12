@@ -63,7 +63,9 @@
         		<a class="navbar-brand" href="javascript:void();">
 					<!--<img src = 'http://ticketfacil.ec/ticket2/gfx/logo.png' style = 'width:100px;'/>-->
 					<!--<i class="material-icons" style="color:#9c27b0;">&#xE84F;</i>Cateyal-->
-					<img src = 'assets/img/logoC.png' style = 'width:100px;'/>
+					<label style="padding-top: 5px;padding-bottom:5px;padding-left: 5px;padding-right: 5px;border: 2px solid #fff">
+						<img src="assets/img/logoC.png" style="width:100px;">
+					</label>
 
 				</a>
         	</div>
@@ -107,7 +109,7 @@
 				<div class="row">
 					<div class="col-md-3"></div>
 					<div class="col-md-6">
-						<div class="card card-signup">
+						<div class="card card-signup" style = 'background-color: rgba(255,255,255,0.7)'>
 							
 								<div class="header header-danger text-center" style="background-color:#9c27b0;">
 									<h4>Escoja opcion de compra</h4>
@@ -117,28 +119,37 @@
 									
 									<div class = 'col-md-3'>
 										<center>
-											<button onclick = "$('#modal1').modal('show') , $('#modal2').modal('hide') , $('#modal3').modal('hide') , menu()"class="btn btn-danger " data-toggle="modal" data-target="#myModal">
-												<i class="fa fa-cutlery" aria-hidden="true"></i>  Menu del dia
-												<div class="ripple-container"></div>
+											<button onclick = "$('#modal1').modal('show') , $('#modal2').modal('hide') , $('#modal3').modal('hide') , $('#modal4').modal('hide') , menu()"class="btn btn-danger botones_" data-toggle="modal" data-target="#myModal">
+												&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<i class="fa fa-fire" aria-hidden="true"></i>  Menu del dia
+												<div class="ripple-container"></div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 											</button>
 										</center>
 									</div>
-									<div class = 'col-md-1'></div>
+									
 									<div class = 'col-md-3'>
 										<center>
-											<button onclick = "$('#modal1').modal('hide') , $('#modal2').modal('hide') , $('#modal3').modal('show') , tips()"class="btn btn-danger " data-toggle="modal" data-target="#myModal">
-												<i class="fa fa-list-ol" aria-hidden="true"></i>  Tips Nutrición
+											<button id = 'boton_base' onclick = "$('#modal1').modal('hide') , $('#modal2').modal('hide') , $('#modal3').modal('hide') , $('#modal4').modal('show') , telefonos()"class="btn btn-danger botones_" data-toggle="modal" data-target="#myModal">
+												&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<i class="fa fa-fire" aria-hidden="true"></i> Cateyal 2018
+												<div class="ripple-container"></div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+											</button>
+										</center>
+									</div>
+									
+									<div class = 'col-md-3'>
+										<center>
+											<button id = 'boton_base' onclick = "$('#modal1').modal('hide') , $('#modal2').modal('hide') , $('#modal3').modal('show') , $('#modal4').modal('hide') , tips()"class="btn btn-danger botones_" data-toggle="modal" data-target="#myModal">
+												<i class="fa fa-fire" aria-hidden="true"></i>  Tips Nutricionales
 												<div class="ripple-container"></div>
 											</button>
 										</center>
 									</div>
-									<div class = 'col-md-1'></div>
+									
 									<div class = 'col-md-3'>
 										
 										<center>
-											<button onclick = "$('#modal1').modal('hide') , $('#modal2').modal('show') , $('#modal3').modal('hide') , doqr()" class="btn btn-danger " data-toggle="modal" data-target="#myModal">
-												<i class="fa fa-qrcode" aria-hidden="true"></i> &nbsp;&nbsp;&nbsp;Codigo QR&nbsp;&nbsp;&nbsp;
-												<div class="ripple-container"></div>
+											<button onclick = "$('#modal1').modal('hide') , $('#modal2').modal('show') , $('#modal3').modal('hide') , $('#modal4').modal('hide') , doqr()" class="btn btn-danger botones_" data-toggle="modal" data-target="#myModal">
+												&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<i class="fa fa-fire" aria-hidden="true"></i> &nbsp;&nbsp;&nbsp;Codigo QR&nbsp;&nbsp;&nbsp;
+												<div class="ripple-container"></div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 											</button>
 										</center>
 									</div>
@@ -346,7 +357,7 @@
 			<div class="modal-content">
 				<div class="modal-header">
 					<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-					<h4 class="modal-title">TIPS DE ALIMENTACÓN</h4>
+					<h4 class="modal-title">TIPS NUTRICIONALES</h4>
 				</div>
 				<div class="modal-body" id = 'recibeTips'>
 					<!--<iframe src = 'http://www.lcodigo.com/cateyal_paginal/tips.php' frameborder = '0' width = '100%' height = '430px' ></iframe>-->
@@ -371,6 +382,26 @@
 			</div>
 		</div>
 	</div>
+	
+	
+	
+	<div class="modal fade" id="modal4" data-keyboard="false" data-backdrop="static" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+		<div class="modal-dialog">
+			<div class="modal-content">
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+					<h4 class="modal-title">CATEYAL 2018</h4>
+				</div>
+				<div class="modal-body" id = 'recibeTelefonos'>
+					
+				</div>
+				<div class="modal-footer">
+					
+					
+				</div>
+			</div>
+		</div>
+	</div>
 </body>
 	<!--   Core JS Files   -->
 	<script src="assets/js/jquery.min.js" type="text/javascript"></script>
@@ -386,6 +417,13 @@
 	<!-- Control Center for Material Kit: activating the ripples, parallax effects, scripts from the example pages etc -->
 	<script src="assets/js/material-kit.js" type="text/javascript"></script>
 	<script>
+		function telefonos(){
+			$.post("http://www.lcodigo.com/cateyal_paginal/telefonos.php",{ 
+					
+			}).done(function(data){
+				$('#recibeTelefonos').html(data);
+			});
+		}
 		function menu(){
 			<!-- alert('va') -->
 			var fecha=new Date();
