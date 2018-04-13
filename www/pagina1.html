@@ -49,7 +49,7 @@
 	<script src="js/scripts.js"></script>
 </head>
 
-<body class="signup-page" onload="setupqr()" style="background-image: url('assets/img/city.JPG'); background-size: cover; background-position: top center;">
+<body class="signup-page" onload="setupqr()" style="background-image: url('assets/img/city.jpg'); background-size: cover; background-position: top center;">
 	<nav class="navbar navbar-transparent navbar-absolute">
     	<div class="container">
         	<!-- Brand and toggle get grouped for better mobile display -->
@@ -63,10 +63,7 @@
         		<a class="navbar-brand" href="javascript:void();">
 					<!--<img src = 'http://ticketfacil.ec/ticket2/gfx/logo.png' style = 'width:100px;'/>-->
 					<!--<i class="material-icons" style="color:#9c27b0;">&#xE84F;</i>Cateyal-->
-					<label style="padding-top: 5px;padding-bottom:5px;padding-left: 5px;padding-right: 5px;border: 2px solid #fff">
-						<img src="assets/img/logoC.png" style="width:100px;">
-					</label>
-
+					<img src="assets/img/logoC.png" style="width:100px;">
 				</a>
         	</div>
 
@@ -77,7 +74,7 @@
                     
                     <li class="active all" id="2">
                        <!-- <a href="http://demos.creative-tim.com/material-dashboard-pro/examples/pages/login.html">-->
-                        <a name="enlace" href = 'index.html'>
+                        <a name="enlace" onclick = 'salir()' >
                             <i class="material-icons" style="color:#9c27b0;"></i> Salir
                         </a>
                     </li>
@@ -117,7 +114,7 @@
 								
 								<div class = 'row'>
 									
-									<div class = 'col-md-3'>
+									<div class = 'col-md-12'>
 										<center>
 											<button onclick = "$('#modal1').modal('show') , $('#modal2').modal('hide') , $('#modal3').modal('hide') , $('#modal4').modal('hide') , menu()"class="btn btn-danger botones_" data-toggle="modal" data-target="#myModal">
 												&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<i class="fa fa-fire" aria-hidden="true"></i>  Menu del dia
@@ -126,16 +123,8 @@
 										</center>
 									</div>
 									
-									<div class = 'col-md-3'>
-										<center>
-											<button id = 'boton_base' onclick = "$('#modal1').modal('hide') , $('#modal2').modal('hide') , $('#modal3').modal('hide') , $('#modal4').modal('show') , telefonos()"class="btn btn-danger botones_" data-toggle="modal" data-target="#myModal">
-												&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<i class="fa fa-fire" aria-hidden="true"></i> Cateyal 2018
-												<div class="ripple-container"></div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-											</button>
-										</center>
-									</div>
 									
-									<div class = 'col-md-3'>
+									<div class = 'col-md-12'>
 										<center>
 											<button id = 'boton_base' onclick = "$('#modal1').modal('hide') , $('#modal2').modal('hide') , $('#modal3').modal('show') , $('#modal4').modal('hide') , tips()"class="btn btn-danger botones_" data-toggle="modal" data-target="#myModal">
 												<i class="fa fa-fire" aria-hidden="true"></i>  Tips Nutricionales
@@ -144,7 +133,7 @@
 										</center>
 									</div>
 									
-									<div class = 'col-md-3'>
+									<div class = 'col-md-12'>
 										
 										<center>
 											<button onclick = "$('#modal1').modal('hide') , $('#modal2').modal('show') , $('#modal3').modal('hide') , $('#modal4').modal('hide') , doqr()" class="btn btn-danger botones_" data-toggle="modal" data-target="#myModal">
@@ -153,7 +142,15 @@
 											</button>
 										</center>
 									</div>
-									
+									<div class = 'col-md-12' id = 'cateyalLink' >
+										<hr>
+										<center onclick = "$('#modal1').modal('hide') , $('#modal2').modal('hide') , $('#modal3').modal('hide') , $('#modal4').modal('show') , telefonos()">
+											<label style = 'cursor:pointer;color:#000;'> 
+												<i class="fa fa-registered" aria-hidden="true"></i>Cateyal 2018
+											</label>
+										</center>
+										<hr>
+									</div>
 								</div>
 								<br><br><br>
 							
@@ -167,6 +164,9 @@
 
     </div>
 <style>
+		#cateyalLink:hover{
+			color:#ef5350;
+		}
 		.table>thead>tr>th, .table>tbody>tr>th, .table>tfoot>tr>th, .table>thead>tr>td, .table>tbody>tr>td, .table>tfoot>tr>td {
 			padding: 8px;
 			line-height: 1.42857143;
@@ -503,5 +503,12 @@
 		var cedula = parametroURL('cedula');
 		<!-- alert(cedula) -->
 		$('#text').val(cedula)
+		
+		localStorage.setItem("cedula", cedula);
+		
+		function salir(){
+			localStorage.setItem("cedula", 'null');
+			window.location = 'index.html';
+		}
 	</script>
 </html>
