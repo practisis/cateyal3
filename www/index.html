@@ -47,7 +47,7 @@
 	<link rel="stylesheet" href="font-awesome/font-awesome/css/font-awesome.min.css">
 </head>
 
-<body class="signup-page" onload = "$('.cajas').val('') , $('#username').focus()"  style="background-image: url('assets/img/city.JPG'); background-size: cover; background-position: top center;">
+<body class="signup-page" onload = "$('.cajas').val('') , $('#username').focus()"  style="background-image: url('assets/img/city.jpg'); background-size: cover; background-position: top center;">
 	<nav class="navbar navbar-transparent navbar-absolute" style = "background-color: rgba(0, 0, 0, 0) !important" >
     	<div class="container">
         	<!-- Brand and toggle get grouped for better mobile display -->
@@ -60,9 +60,7 @@
         		</button>
 				<center>
 					<a class="" href="javascript:void();">
-						<label style="padding-top: 5px;padding-bottom:5px;padding-left: 5px;padding-right: 5px;border: 2px solid #fff">
-							<img src="assets/img/logoC.png" style="width:100px;">
-						</label>
+						<img src="assets/img/logoC.png" style="width:100px;">
 					</a>
 				</center>
         	</div>
@@ -116,7 +114,7 @@
 											<i class="fa fa-id-card-o" aria-hidden="true"></i>
 										</span>
 										<div class="form-group is-empty">
-											<input autocomplete="off" onkeyup="this.value = this.value.replace (/[^0-9]/, ''); " class="form-control cajas entero" placeholder="Cedula : 0500054747" id="username" type="number" maxlength = '10' style = 'color:#000;'/><span class="material-input"></span>
+											<input class="form-control cajas entero" placeholder="Cedula : 0500054747" id="username" type="number" maxlength = '10' style = 'color:#000;'/><span class="material-input"></span>
 										</div>
 									</div>
 
@@ -125,7 +123,7 @@
 											<i class="fa fa-lock" aria-hidden="true" id = 'candado'></i>
 										</span>
 										<div class="form-group is-empty">
-											<input onkeyup="this.value = this.value.replace (/[^0-9]/, ''); " autocomplete="off" placeholder="4 ultimos digitos de cedula" class="form-control cajas" id="password" type="number" style = 'color:#000;' /><span class="material-input"></span>
+											<input  autocomplete="off" placeholder="4 ultimos digitos de cedula" class="form-control cajas entero" id="password" type="number" style = 'color:#000;' /><span class="material-input"></span>
 										</div>
 									</div>
 
@@ -171,7 +169,25 @@
 	<script type="text/javascript" src="js/jquery.numeric.js"></script>
 	<script>
 	$( document ).ready(function() {
+		var cedula = localStorage.getItem("cedula");
+		<!-- alert (cedula) -->
+		if(cedula == 'null' || cedula == ''){
+			<!-- window.location = 'pagina1.html?cedula='+cedula; -->
+		}else{
+			window.location = 'pagina1.html?cedula='+cedula;
+		}
 		$('.entero').numeric();
+		$('#username').keypress(function() {
+			if (this.value.length >= 10) {
+				return false;
+			}
+		});
+		
+		$('#password').keypress(function() {
+			if (this.value.length >= 4) {
+				return false;
+			}
+		});
 	});
 		$('#username').blur(function(){
 			var username = $('#username').val();
