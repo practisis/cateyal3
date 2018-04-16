@@ -49,7 +49,7 @@
 	<script src="js/scripts.js"></script>
 </head>
 
-<body class="signup-page" onload="setupqr()" style="background-image: url('assets/img/city.JPG'); background-size: cover; background-position: top center;">
+<body class="signup-page" onload="setupqr()" style="background-image: url('assets/img/city.jpg'); background-size: cover; background-position: top center;">
 	<nav class="navbar navbar-transparent navbar-absolute">
     	<div class="container">
         	<!-- Brand and toggle get grouped for better mobile display -->
@@ -109,7 +109,7 @@
 						<div class="card card-signup" style = 'background-color: rgba(255,255,255,0.7)'>
 							
 								<div class="header header-danger text-center" style="background-color:#9c27b0;">
-									<h4>Escoja opcion de compra</h4>
+									<h4>tu alimentación en las mejores manos</h4>
 								</div>
 								
 								<div class = 'row'>
@@ -117,8 +117,8 @@
 									<div class = 'col-md-12'>
 										<center>
 											<button onclick = "$('#modal1').modal('show') , $('#modal2').modal('hide') , $('#modal3').modal('hide') , $('#modal4').modal('hide') , menu()"class="btn btn-danger botones_" data-toggle="modal" data-target="#myModal">
-												&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<i class="fa fa-fire" aria-hidden="true"></i>  Menu del dia
-												<div class="ripple-container"></div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+												&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<i class="fa fa-fire" aria-hidden="true"></i>  Menú<label style = 'color:#F44336;display:none;'> del dia</label>
+												<div class="ripple-container"></div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 											</button>
 										</center>
 									</div>
@@ -137,19 +137,18 @@
 										
 										<center>
 											<button onclick = "$('#modal1').modal('hide') , $('#modal2').modal('show') , $('#modal3').modal('hide') , $('#modal4').modal('hide') , doqr()" class="btn btn-danger botones_" data-toggle="modal" data-target="#myModal">
-												&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<i class="fa fa-fire" aria-hidden="true"></i> &nbsp;&nbsp;&nbsp;Codigo QR&nbsp;&nbsp;&nbsp;
+												&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<i class="fa fa-fire" aria-hidden="true"></i> &nbsp;&nbsp;&nbsp;Código QR&nbsp;&nbsp;&nbsp;
 												<div class="ripple-container"></div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 											</button>
 										</center>
 									</div>
 									<div class = 'col-md-12' id = 'cateyalLink' >
-										<hr>
-										<center onclick = "$('#modal1').modal('hide') , $('#modal2').modal('hide') , $('#modal3').modal('hide') , $('#modal4').modal('show') , telefonos()">
-											<label style = 'cursor:pointer;color:#000;'> 
-												<i class="fa fa-registered" aria-hidden="true"></i>Cateyal 2018
-											</label>
+										<center>
+											<button   onclick = "$('#modal1').modal('hide') , $('#modal2').modal('hide') , $('#modal3').modal('hide') , $('#modal4').modal('show') , telefonos()" class="btn btn-danger botones_" data-toggle="modal" data-target="#myModal">
+												&nbsp;&nbsp;&nbsp;&nbsp;<i class="fa fa-fire" aria-hidden="true"></i> &nbsp;&nbsp;&nbsp;Cateyal 2018
+												<div class="ripple-container"></div>&nbsp;&nbsp;&nbsp;&nbsp;
+											</button>
 										</center>
-										<hr>
 									</div>
 								</div>
 								<br><br><br>
@@ -184,66 +183,20 @@
 					<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
 					<h4 class="modal-title">Menú del Día</h4>
 				</div>
-				<div class="modal-body" id = 'recibeMenu'>
-					<!--<iframe src = 'http://www.lcodigo.com/cateyal_paginal/menu.php?diaA=miercoles' frameborder = '0' width = '100%' height = '430px' ></iframe>-->
-					<ul class="list-group">
-						<li class="list-group-item listas">
-							<table class="tabless">
-								<tbody><tr>
-									<td colspan="2" style="text-transform:uppercase;text-align:center;font-size:2vw;font-weight:bold;">
-										miercoles					</td>
-								</tr>
-							</tbody></table>
-						</li>
-									<li class="list-group-item listas">
-								<table class="tabless">
-									<tbody><tr>	
-										<td style="text-align:left;padding:10px;width:50%;">sopa</td>
-										<td style="text-align:left;padding:10px;width:50%;">sopa 1</td>
-									</tr>
-								</tbody></table>
-							</li>
-									<li class="list-group-item listas">
-								<table class="tabless">
-									<tbody><tr>	
-										<td style="text-align:left;padding:10px;width:50%;">proteína</td>
-										<td style="text-align:left;padding:10px;width:50%;">lomo 1</td>
-									</tr>
-								</tbody></table>
-							</li>
-									<li class="list-group-item listas">
-								<table class="tabless">
-									<tbody><tr>	
-										<td style="text-align:left;padding:10px;width:50%;">guarnición</td>
-										<td style="text-align:left;padding:10px;width:50%;">arroz 1</td>
-									</tr>
-								</tbody></table>
-							</li>
-									<li class="list-group-item listas">
-								<table class="tabless">
-									<tbody><tr>	
-										<td style="text-align:left;padding:10px;width:50%;">ensalada</td>
-										<td style="text-align:left;padding:10px;width:50%;">tomate 1</td>
-									</tr>
-								</tbody></table>
-							</li>
-									<li class="list-group-item listas">
-								<table class="tabless">
-									<tbody><tr>	
-										<td style="text-align:left;padding:10px;width:50%;">postre</td>
-										<td style="text-align:left;padding:10px;width:50%;">fruta</td>
-									</tr>
-								</tbody></table>
-							</li>
-									<li class="list-group-item listas">
-								<table class="tabless">
-									<tbody><tr>	
-										<td style="text-align:left;padding:10px;width:50%;">jugo</td>
-										<td style="text-align:left;padding:10px;width:50%;">fruta</td>
-									</tr>
-								</tbody></table>
-							</li>
-							</ul>
+				<div class="modal-body" id = 'cuerpoMenu2' >
+					<table id = 'cuerpoMenu' class = 'table'>
+						<tr>
+							<td style = 'vertical-align: top;padding-left: 5px;padding-right: 5px;cursor: pointer;color:red;' id = 'izq'>
+								<i class="fa fa-search-minus" aria-hidden="true" onclick = 'cambiarTamano(1)'></i>
+							</td>
+							<td >
+								<div id = 'recibeMenu' style = 'overflow-y:scroll;width:230px;height150px'></div>
+							</td>
+							<td style = 'vertical-align: top;padding-left: 5px;padding-right: 5px;cursor: pointer;color:#1E9F75;' id = 'der'>
+								<i class="fa fa-search-plus" aria-hidden="true" onclick = 'cambiarTamano(2)'></i>
+							</td>
+						</tr>
+					</table>
 				</div>
 				<div class="modal-footer">
 					
@@ -252,7 +205,33 @@
 			</div>
 		</div>
 	</div>
-	
+	<script>
+		<!-- $(document).ready(function(){ -->
+			
+		
+		<!-- }) -->
+		
+		function cambiarTamano(ident){
+			
+			if(ident == 1){
+				var anchoImg = $('#foto_menu').width();
+				var altoImg = $('#foto_menu').height();
+				
+				$('#foto_menu').css('width',(parseInt(anchoImg) - parseInt(10)))
+				$('#foto_menu').css('height',(parseInt(altoImg) - parseInt(10)))
+				
+			}else if(ident == 2){
+				
+				var anchoImg2 = $('#foto_menu').width();
+				var altoImg2 = $('#foto_menu').height();
+				<!-- alert(parseInt(anchoImg2) +'+'+ parseInt(10)) -->
+				$('#foto_menu').css('width',(parseInt(anchoImg2) + parseInt(10)))
+				$('#foto_menu').css('height',(parseInt(altoImg2) + parseInt(10)))
+			}
+			
+			<!-- alert(anchoImg + ' << >> ' + altoImg) -->
+		}
+	</script>
 	
 	
 	<div class="modal fade" id="modal2" data-keyboard="false" data-backdrop="static" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
@@ -260,7 +239,7 @@
 			<div class="modal-content">
 				<div class="modal-header">
 					<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-					<h4 class="modal-title">Codigo QR</h4>
+					<h4 class="modal-title">Código QR</h4>
 				</div>
 				<div class="modal-body" style ="background-color: #fff;text-align: center">
 					<div id="container"></div>
@@ -417,6 +396,7 @@
 	<!-- Control Center for Material Kit: activating the ripples, parallax effects, scripts from the example pages etc -->
 	<script src="assets/js/material-kit.js" type="text/javascript"></script>
 	<script>
+		
 		function telefonos(){
 			$.post("http://www.lcodigo.com/cateyal_paginal/telefonos.php",{ 
 					
@@ -434,6 +414,27 @@
 			}).done(function(data){
 				<!-- alert('viene') -->
 				$('#recibeMenu').html(data);
+				
+				<!-- var anchoMenu2 = $('#cuerpoMenu2').width(); -->
+				<!-- var altoMenu2 = (parseInt(anchoMenu2)-parseInt(100)) -->
+				
+				<!-- var anchoFlecha1 = $('#izq').width(); -->
+				<!-- var anchoFlecha2 = $('#der').width(); -->
+				
+				<!-- var achoFlechas = ((parseInt(anchoFlecha1)*2) + (parseInt(anchoFlecha2)*2)); -->
+				<!-- <!-- alert(anchoMenu2 +'<<>>'+ anchoFlecha1 +'>><<'+ anchoFlecha2 ) --> -->
+				<!-- var altoMenu2 = (parseInt(anchoMenu2)-parseInt(100)) -->
+				
+				<!-- $('#cuerpoMenu').css('width',(parseInt(anchoMenu2) - parseInt(achoFlechas))); -->
+				<!-- $('#cuerpoMenu').css('height',altoMenu2); -->
+				
+				
+				
+				<!-- var anchoMenu = $('#foto_menu').width(); -->
+				<!-- var altoMenu = $('#foto_menu').height(); -->
+				
+				<!-- $('#recibeMenu').css('width',anchoMenu); -->
+				<!-- $('#recibeMenu').css('height',altoMenu); -->
 			});
 		}
 		
