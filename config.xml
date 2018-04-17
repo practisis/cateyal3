@@ -29,29 +29,29 @@
     <preference name="android-minSdkVersion" value="7" />
     <preference name="android-installLocation" value="auto" />
     <icon src="icon.png" />
-    <icon gap:platform="android" gap:qualifier="ldpi" src="www/assets/img/logo1.png" />
-    <icon gap:platform="android" gap:qualifier="mdpi" src="www/assets/img/logo1.png" />
-    <icon gap:platform="android" gap:qualifier="hdpi" src="www/assets/img/logo1.png" />
-    <icon gap:platform="android" gap:qualifier="xhdpi" src="www/assets/img/logo1.png" />
-    <icon gap:platform="blackberry" src="www/assets/img/logo1.png" />
-    <icon gap:platform="blackberry" gap:state="hover" src="www/assets/img/logo1.png" />
-    <icon gap:platform="ios" height="57" src="www/assets/img/logo1.png" width="57" />
-    <icon gap:platform="ios" height="72" src="www/assets/img/logo1.png" width="72" />
-    <icon gap:platform="ios" height="114" src="www/assets/img/logo1.png" width="114" />
-    <icon gap:platform="ios" height="144" src="www/assets/img/logo1.png" width="144" />
-    <icon gap:platform="webos" src="www/assets/img/logo1.png" />
-    <icon gap:platform="winphone" src="www/assets/img/logo1.png" />
-    <icon gap:platform="winphone" gap:role="background" src="www/assets/img/logo1.png" />
-    <gap:splash gap:platform="android" gap:qualifier="port-ldpi" src="www/assets/img/logo1.png" />
-    <gap:splash gap:platform="android" gap:qualifier="port-mdpi" src="www/assets/img/logo1.png" />
-    <gap:splash gap:platform="android" gap:qualifier="port-hdpi" src="www/assets/img/logo1.png" />
-    <gap:splash gap:platform="android" gap:qualifier="port-xhdpi" src="www/assets/img/logo1.png" />
-    <gap:splash gap:platform="blackberry" src="www/assets/img/logo1.png" />
-    <gap:splash gap:platform="ios" height="480" src="www/assets/img/logo1.png" width="320" />
-    <gap:splash gap:platform="ios" height="960" src="www/assets/img/logo1.png" width="640" />
-    <gap:splash gap:platform="ios" height="1136" src="www/assets/img/logo1.png" width="640" />
-    <gap:splash gap:platform="ios" height="1024" src="www/assets/img/logo1.png" width="768" />
-    <gap:splash gap:platform="ios" height="768" src="www/assets/img/logo1.png" width="1024" />
-    <gap:splash gap:platform="winphone" src="www/assets/img/logo1.png"/>
+    <icon gap:platform="android" gap:qualifier="ldpi" src="www/assets/img/logoC.png" />
+    <icon gap:platform="android" gap:qualifier="mdpi" src="www/assets/img/logoC.png" />
+    <icon gap:platform="android" gap:qualifier="hdpi" src="www/assets/img/logoC.png" />
+    <icon gap:platform="android" gap:qualifier="xhdpi" src="www/assets/img/logoC.png" />
+    <icon gap:platform="blackberry" src="www/assets/img/logoC.png" />
+    <icon gap:platform="blackberry" gap:state="hover" src="www/assets/img/logoC.png" />
+    <icon gap:platform="ios" height="57" src="www/assets/img/logoC.png" width="57" />
+    <icon gap:platform="ios" height="72" src="www/assets/img/logoC.png" width="72" />
+    <icon gap:platform="ios" height="114" src="www/assets/img/logoC.png" width="114" />
+    <icon gap:platform="ios" height="144" src="www/assets/img/logoC.png" width="144" />
+    <icon gap:platform="webos" src="www/assets/img/logoC.png" />
+    <icon gap:platform="winphone" src="www/assets/img/logoC.png" />
+    <icon gap:platform="winphone" gap:role="background" src="www/assets/img/logoC.png" />
+    <gap:splash gap:platform="android" gap:qualifier="port-ldpi" src="www/assets/img/logoC.png" />
+    <gap:splash gap:platform="android" gap:qualifier="port-mdpi" src="www/assets/img/logoC.png" />
+    <gap:splash gap:platform="android" gap:qualifier="port-hdpi" src="www/assets/img/logoC.png" />
+    <gap:splash gap:platform="android" gap:qualifier="port-xhdpi" src="www/assets/img/logoC.png" />
+    <gap:splash gap:platform="blackberry" src="www/assets/img/logoC.png" />
+    <gap:splash gap:platform="ios" height="480" src="www/assets/img/logoC.png" width="320" />
+    <gap:splash gap:platform="ios" height="960" src="www/assets/img/logoC.png" width="640" />
+    <gap:splash gap:platform="ios" height="1136" src="www/assets/img/logoC.png" width="640" />
+    <gap:splash gap:platform="ios" height="1024" src="www/assets/img/logoC.png" width="768" />
+    <gap:splash gap:platform="ios" height="768" src="www/assets/img/logoC.png" width="1024" />
+    <gap:splash gap:platform="winphone" src="www/assets/img/logoC.png"/>
 	<access origin="*" />
 </widget>
