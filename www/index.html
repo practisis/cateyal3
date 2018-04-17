@@ -169,13 +169,13 @@
 	<script type="text/javascript" src="js/jquery.numeric.js"></script>
 	<script>
 	$( document ).ready(function() {
-		var cedula = localStorage.getItem("cedula");
-		<!-- alert (cedula) -->
-		if(cedula == 'null' || cedula == ''){
+		<!-- var cedula = localStorage.getItem("cedula"); -->
+		<!-- <!-- alert (cedula) --> -->
+		<!-- if(cedula == 'null' || cedula == ''){ -->
+			<!-- <!-- window.location = 'pagina1.html?cedula='+cedula; --> -->
+		<!-- }else{ -->
 			<!-- window.location = 'pagina1.html?cedula='+cedula; -->
-		}else{
-			window.location = 'pagina1.html?cedula='+cedula;
-		}
+		<!-- } -->
 		$('.entero').numeric();
 		$('#username').keypress(function() {
 			if (this.value.length >= 10) {
