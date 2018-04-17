@@ -49,7 +49,7 @@
 	<script src="js/scripts.js"></script>
 </head>
 
-<body class="signup-page" onload="setupqr()" style="background-image: url('assets/img/city.JPG'); background-size: cover; background-position: top center;">
+<body class="signup-page" onload="init();" style="background-image: url('assets/img/city.JPG'); background-size: cover; background-position: top center;">
 	<nav class="navbar navbar-transparent navbar-absolute">
     	<div class="container">
         	<!-- Brand and toggle get grouped for better mobile display -->
@@ -109,7 +109,7 @@
 						<div class="card card-signup" style = 'background-color: rgba(255,255,255,0.7)'>
 							
 								<div class="header header-danger text-center" style="background-color:#9c27b0;">
-									<h4>tu alimentación en las mejores manos</h4>
+									<h4>Tu alimentación en las mejores manos!</h4>
 								</div>
 								
 								<div class = 'row'>
@@ -175,58 +175,250 @@
 		.tabless{
 			width:100%;
 		}
+		
+		/* ::-webkit-scrollbar { width: 15px; height: 15px;}
+		::-webkit-scrollbar-button {  background-color: #D63333; }
+		::-webkit-scrollbar-track {  background-color: #D63333;}
+		::-webkit-scrollbar-track-piece { background-color: #ffffff;}
+		::-webkit-scrollbar-thumb { height: 50px; background-color: #D63333; border-radius: 3px;}
+		::-webkit-scrollbar-corner { background-color: #D63333;}}
+		::-webkit-resizer { background-color: #D63333;} */
+
+		::-webkit-scrollbar {  
+			width: 12px;  
+		}  
+		::-webkit-scrollbar-track {  
+			background-color: #ccc;  
+			border-left: 1px solid #ccc;  
+		}  
+		::-webkit-scrollbar-thumb {  
+			background-color: #D63333;  
+		}  
+		::-webkit-scrollbar-thumb:hover {  
+			background-color: #aaa;  
+		}  
 	</style>
 	<div data-keyboard="false" data-backdrop="static" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" class="modal fade" id="modal1" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-		<div class="modal-dialog">
+		<div class="modal-dialog" style = 'margin-left:0px;margin-right:0px;'>
 			<div class="modal-content">
 				<div class="modal-header">
-					<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+					<button onclick = "window.location=''" type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
 					<h4 class="modal-title">Menú del Día</h4>
 				</div>
-				<div class="modal-body" id = 'cuerpoMenu2' >
-					<table id = 'cuerpoMenu' class = 'table'>
-						<tr>
-							<td style = 'vertical-align: top;padding-left: 5px;padding-right: 5px;cursor: pointer;color:red;' id = 'izq'>
-								<i class="fa fa-search-minus" aria-hidden="true" onclick = 'cambiarTamano(1)'></i>
-							</td>
-							<td >
-								<div id = 'recibeMenu' style = 'overflow-y:scroll;width:230px;height150px'></div>
-							</td>
-							<td style = 'vertical-align: top;padding-left: 5px;padding-right: 5px;cursor: pointer;color:#1E9F75;' id = 'der'>
-								<i class="fa fa-search-plus" aria-hidden="true" onclick = 'cambiarTamano(2)'></i>
-							</td>
-						</tr>
-					</table>
+				<div class="modal-body" id = 'recibeMenu2'>
+					<div style = 'overflow-x:scroll;' id = 'contieneMenu'>
+						<center><img src="menu.png" alt="image" class="img-rounded" id="target1" style='width:70%;'/></center><br/>
+					</div>
 				</div>
 				<div class="modal-footer">
-					
-					
+					<div class = 'col-md-12' id = 'coordenadas' style = 'display:none;'></div>
 				</div>
 			</div>
 		</div>
 	</div>
 	<script>
-		<!-- $(document).ready(function(){ -->
-			
+		function saberTamanoVentana(){
+			var anchoVentana = $(window).width();
+			$('#contieneMenu').css('max-width',(parseInt(anchoVentana) - parseInt(40)));
+			<!-- alert(anchoVentana); -->
+		}
+		$(document).ready(function(){
+			saberTamanoVentana();
+		})
 		
-		<!-- }) -->
+		$(window).resize(function(){
+			saberTamanoVentana();
+		});
+		// Log events flag
+		var logEvents = false;
+
+		// Touch Point cache
+		var tpCache = new Array();
+		
+		
+		function set_handlers(name) {
+			// Install event handlers for the given element
+			var el=document.getElementById(name);
+			el.ontouchstart = start_handler;
+			el.ontouchmove = move_handler;
+			// Use same handler for touchcancel and touchend
+			el.ontouchcancel = end_handler;
+			el.ontouchend = end_handler;
+		}
+
+		function init() {
+			set_handlers("target1");
+			set_handlers("target2");
+			set_handlers("target3");
+			set_handlers("target4");
+		}
+		
+		
+		// This is a very basic 2-touch move/pinch/zoom handler that does not include
+		// error handling, only handles horizontal moves, etc.
+		function handle_pinch_zoom(ev) {
+
+			if (ev.targetTouches.length == 2 && ev.changedTouches.length == 2) {
+				// Check if the two target touches are the same ones that started
+				// the 2-touch
+				var point1=-1, point2=-1;
+				for (var i=0; i < tpCache.length; i++) {
+					if (tpCache[i].identifier == ev.targetTouches[0].identifier) point1 = i;
+					if (tpCache[i].identifier == ev.targetTouches[1].identifier) point2 = i;
+				}
+				if (point1 >=0 && point2 >= 0) {
+					// Calculate the difference between the start and move coordinates
+					var diff1 = Math.abs(tpCache[point1].clientX - ev.targetTouches[0].clientX);
+					var diff2 = Math.abs(tpCache[point2].clientX - ev.targetTouches[1].clientX);
+
+					// This threshold is device dependent as well as application specific
+					var PINCH_THRESHHOLD = ev.target.clientWidth / 10;
+					if (diff1 >= PINCH_THRESHHOLD && diff2 >= PINCH_THRESHHOLD)
+					ev.target.style.background = "green";
+					
+					
+					var tamano = $('#target1').width();
+					$('#coordenadas').html('target ' + PINCH_THRESHHOLD + ' <br/> tamaño de la imagen : ' + tamano + ' <br/> posicion dedo 1 : ' + point1 + ' <br/> posicion dedo 2 : ' + point2 + ' <br/> deferencia dedo 1 : ' + diff1 + ' <br/> diferencia dedo 2 : ' + diff2);
+					
+					if(point2 > point1 ){
+						$('#target1').css('width',(parseInt(tamano) + parseInt(30)));
+						$('#target1').css('border','2px solid red');
+					}else{
+						$('#target1').css('width',(parseInt(tamano) - parseInt(30)));
+						$('#target1').css('border','2px solid green');
+					}
+					
+					
+					
+				}
+				else {
+				// empty tpCache
+					
+					var tamano = $('#target1').width();
+					
+					
+					$('#coordenadas').html('tamaño de la imagen : ' + tamano + ' <br/> posicion dedo 1 : ' + point1 + ' <br/> posicion dedo 2 : ' + point2 + ' <br/> deferencia dedo 1 : ' + diff1 + ' <br/> diferencia dedo 2 : ' + diff2);
+					
+					
+					
+					tpCache = new Array();
+				}
+			}
+		}
+		
+		
+		function start_handler(ev) {
+			// If the user makes simultaneious touches, the browser will fire a 
+			// separate touchstart event for each touch point. Thus if there are 
+			// three simultaneous touches, the first touchstart event will have 
+			// targetTouches length of one, the second event will have a length 
+			// of two, and so on.
+			ev.preventDefault();
+			// Cache the touch points for later processing of 2-touch pinch/zoom
+			if (ev.targetTouches.length == 2) {
+				for (var i=0; i < ev.targetTouches.length; i++) {
+					tpCache.push(ev.targetTouches[i]);
+				}
+			}
+			if (logEvents) log("touchStart", ev, true);
+			update_background(ev);
+		}
+		
+		function move_handler(ev) {
+			// Note: if the user makes more than one "simultaneous" touches, most browsers 
+			// fire at least one touchmove event and some will fire several touchmoves.
+			// Consequently, an application might want to "ignore" some touchmoves.
+			//
+			// This function sets the target element's border to "dashed" to visually
+			// indicate the target received a move event.
+			//
+			ev.preventDefault();
+			if (logEvents) log("touchMove", ev, false);
+			// To avoid too much color flashing many touchmove events are started,
+			// don't update the background if two touch points are active
+			if (!(ev.touches.length == 2 && ev.targetTouches.length == 2))
+			update_background(ev);
+
+			// Set the target element's border to dashed to give a clear visual
+			// indication the element received a move event.
+			ev.target.style.border = "dashed";
+
+			// Check this event for 2-touch Move/Pinch/Zoom gesture
+			handle_pinch_zoom(ev);
+		}
+		
+		
+		function end_handler(ev) {
+			ev.preventDefault();
+			if (logEvents) log(ev.type, ev, false);
+			if (ev.targetTouches.length == 0) {
+				// Restore background and border to original values
+				ev.target.style.background = "white";
+				ev.target.style.border = "1px solid black";
+			}
+		}
+		
+		function update_background(ev) {
+			// Change background color based on the number simultaneous touches
+			// in the event's targetTouches list:
+			//   yellow - one tap (or hold)
+			//   pink - two taps
+			//   lightblue - more than two taps
+			switch (ev.targetTouches.length) {
+				case 1:
+				// Single tap`
+				<!-- ev.target.style.background = "yellow"; -->
+				break;
+				case 2:
+				// Two simultaneous touches
+				<!-- ev.target.style.background = "pink"; -->
+				break;
+				default:
+				// More than two simultaneous touches
+				<!-- ev.target.style.background = "lightblue"; -->
+			}
+		}
+		
+		
+		function enableLog(ev) {
+			logEvents = logEvents ? false : true;
+		}
+
+		function log(name, ev, printTargetIds) {
+			var o = document.getElementsByTagName('output')[0];
+			var s = name + ": touches = " + ev.touches.length + " ; targetTouches = " + ev.targetTouches.length + " ; changedTouches = " + ev.changedTouches.length;
+			o.innerHTML += s + " ";
+
+			if (printTargetIds) {
+				s = "";
+				for (var i=0; i < ev.targetTouches.length; i++) {
+					s += "... id = " + ev.targetTouches[i].identifier + " ";
+				}
+				o.innerHTML += s;
+			}
+		} 
+
+		function clearLog(event) {
+			var o = document.getElementsByTagName('output')[0];
+			o.innerHTML = "";
+		}
 		
 		function cambiarTamano(ident){
 			
 			if(ident == 1){
-				var anchoImg = $('#foto_menu').width();
-				var altoImg = $('#foto_menu').height();
+				var anchoImg = $('#target1').width();
+				var altoImg = $('#target1').height();
 				
-				$('#foto_menu').css('width',(parseInt(anchoImg) - parseInt(10)))
-				$('#foto_menu').css('height',(parseInt(altoImg) - parseInt(10)))
+				$('#target1').css('width',(parseInt(anchoImg) - parseInt(10)))
+				$('#target1').css('height',(parseInt(altoImg) - parseInt(10)))
 				
 			}else if(ident == 2){
 				
-				var anchoImg2 = $('#foto_menu').width();
-				var altoImg2 = $('#foto_menu').height();
+				var anchoImg2 = $('#target1').width();
+				var altoImg2 = $('#target1').height();
 				<!-- alert(parseInt(anchoImg2) +'+'+ parseInt(10)) -->
-				$('#foto_menu').css('width',(parseInt(anchoImg2) + parseInt(10)))
-				$('#foto_menu').css('height',(parseInt(altoImg2) + parseInt(10)))
+				$('#target1').css('width',(parseInt(anchoImg2) + parseInt(10)))
+				$('#target1').css('height',(parseInt(altoImg2) + parseInt(10)))
 			}
 			
 			<!-- alert(anchoImg + ' << >> ' + altoImg) -->
@@ -430,8 +622,8 @@
 				
 				
 				
-				<!-- var anchoMenu = $('#foto_menu').width(); -->
-				<!-- var altoMenu = $('#foto_menu').height(); -->
+				<!-- var anchoMenu = $('#target1').width(); -->
+				<!-- var altoMenu = $('#target1').height(); -->
 				
 				<!-- $('#recibeMenu').css('width',anchoMenu); -->
 				<!-- $('#recibeMenu').css('height',altoMenu); -->
